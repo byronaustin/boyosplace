@@ -1,11 +1,13 @@
 Boyosplace::Application.routes.draw do
-  get "static_pages/home"
+  get "users/new"
+  root to: 'static_pages#home'
 
-  get "static_pages/help"
+  match '/signup',  to: 'users#new'
   
-  get "static_pages/about"
-  
-  get "static_pages/contact"
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match '/post', 	to: 'posts#post'
 
   resources :posts
 
